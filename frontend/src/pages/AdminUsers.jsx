@@ -77,7 +77,7 @@ const AdminUsers = () => {
                 </TableCell>
                 <TableCell align="right">
                   <IconButton onClick={() => handleBanToggle(user._id, user.isBanned)}>
-                    {user.isBanned ? <CheckCircle color="success" /> : <Block color="error" />}
+                    {user.isBanned ? <CheckCircleIcon color="success" /> : <BlockIcon color="error" />}
                   </IconButton>
                 </TableCell>
               </TableRow>

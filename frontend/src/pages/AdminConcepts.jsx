@@ -141,7 +141,7 @@ const AdminConcepts = () => {
     <Box>
       <Box sx={{ display: 'flex', justifyContent: 'space-between', mb: 2 }}>
         <Typography variant="h5" fontWeight="bold">Concept Management</Typography>
-        <Button variant="contained" startIcon={<Add />} onClick={() => handleOpenDialog()}>
+        <Button variant="contained" startIcon={<AddIcon />} onClick={() => handleOpenDialog()}>
           Add Concept
         </Button>
       </Box>
