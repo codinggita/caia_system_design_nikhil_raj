@@ -84,8 +84,8 @@ const Dashboard = () => {
           InputProps={{
             startAdornment: (
               <InputAdornment position="start">
-                <Search />
-              </InputAdornment>
+                  <SearchIcon />
+                </InputAdornment>
             ),
           }}
         />

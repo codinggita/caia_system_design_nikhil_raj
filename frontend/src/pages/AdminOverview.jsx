@@ -34,10 +34,10 @@ const AdminOverview = () => {
   }, []);
 
   const statCards = [
-    { title: 'Total Concepts', value: stats.totalConcepts, icon: <LibraryBooks color="primary" />, color: '#e3f2fd' },
-    { title: 'Total Users', value: stats.totalUsers, icon: <People color="secondary" />, color: '#f3e5f5' },
-    { title: 'Total Views', value: stats.totalViews, icon: <Visibility color="success" />, color: '#e8f5e9' },
-    { title: 'Total Bookmarks', value: stats.totalBookmarks, icon: <Bookmark color="warning" />, color: '#fff3e0' },
+    { title: 'Total Concepts', value: stats.totalConcepts, icon: <LibraryBooksIcon color="primary" />, color: '#e3f2fd' },
+    { title: 'Total Users', value: stats.totalUsers, icon: <PeopleIcon color="secondary" />, color: '#f3e5f5' },
+    { title: 'Total Views', value: stats.totalViews, icon: <VisibilityIcon color="success" />, color: '#e8f5e9' },
+    { title: 'Total Bookmarks', value: stats.totalBookmarks, icon: <BookmarkIcon color="warning" />, color: '#fff3e0' },
   ];
 
   return (
