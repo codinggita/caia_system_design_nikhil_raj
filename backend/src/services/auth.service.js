@@ -15,7 +15,7 @@ const generateRefreshToken = (id) => {
   });
 };
 
-const registerUser = async (userData) => {
+const register = async (userData) => {
   const { name, email, password } = userData;
   
   // Check if user exists
@@ -32,16 +32,20 @@ const registerUser = async (userData) => {
   });
 
   return {
-    _id: user._id,
-    name: user.name,
-    email: user.email,
-    role: user.role,
-    token: generateToken(user._id),
+    user: {
+      _id: user._id,
+      name: user.name,
+      email: user.email,
+      role: user.role
+    },
+    accessToken: generateToken(user._id),
     refreshToken: generateRefreshToken(user._id)
   };
 };
 
-const loginUser = async (email, password) => {
+const login = async (loginData) => {
+  const { email, password } = loginData;
+  
   // Check for user email
   const user = await User.findOne({ email }).select('+password');
   
@@ -61,16 +65,24 @@ const loginUser = async (email, password) => {
   }
 
   return {
-    _id: user._id,
-    name: user.name,
-    email: user.email,
-    role: user.role,
-    token: generateToken(user._id),
+    user: {
+      _id: user._id,
+      name: user.name,
+      email: user.email,
+      role: user.role
+    },
+    accessToken: generateToken(user._id),
     refreshToken: generateRefreshToken(user._id)
   };
 };
 
-const refreshAuthToken = async (refreshToken) => {
+const logout = async () => {
+  // For logout, we don't need to do anything server-side
+  // Client will just remove tokens from localStorage
+  return true;
+};
+
+const refreshToken = async (refreshToken) => {
   if (!refreshToken) {
     throw new Error('Refresh token is required');
   }
@@ -84,7 +96,7 @@ const refreshAuthToken = async (refreshToken) => {
     }
 
     return {
-      token: generateToken(user._id),
+      accessToken: generateToken(user._id),
       refreshToken: generateRefreshToken(user._id)
     };
   } catch (error) {
@@ -120,9 +132,10 @@ const deleteProfile = async (userId) => {
 };
 
 module.exports = {
-  registerUser,
-  loginUser,
-  refreshAuthToken,
+  register,
+  login,
+  logout,
+  refreshToken,
   getProfile,
   updateProfile,
   deleteProfile
