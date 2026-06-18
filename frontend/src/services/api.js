@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_BASE_URL = import.meta.env.VITE_API_URL || (import.meta.env.DEV ? 'http://localhost:5000/api/v1' : 'https://caia-system-design-backend.onrender.com/api/v1');
+const API_BASE_URL = import.meta.env.VITE_API_URL || (import.meta.env.DEV ? 'http://localhost:5000/api/v1' : 'https://caia-system-design-nikhil-raj.onrender.com/api/v1');
 
 const api = axios.create({
   baseURL: API_BASE_URL,
