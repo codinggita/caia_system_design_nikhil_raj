@@ -51,7 +51,10 @@ const Dashboard = () => {
       dispatch(fetchStart());
       try {
         const response = await api.get('/concepts', { params });
-        dispatch(fetchSuccess(response.data.data));
+        dispatch(fetchSuccess({
+          concepts: response.data.data,
+          pagination: response.data.pagination
+        }));
       } catch (error) {
         dispatch(fetchFailure(error.message));
       }
@@ -84,7 +87,7 @@ const Dashboard = () => {
           InputProps={{
             startAdornment: (
               <InputAdornment position="start">
-                  <SearchIcon />
+                  <Search />
                 </InputAdornment>
             ),
           }}

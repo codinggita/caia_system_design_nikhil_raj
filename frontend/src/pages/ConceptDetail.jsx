@@ -79,10 +79,10 @@ const ConceptDetail = () => {
           </Box>
           <Box>
             <IconButton onClick={handleBookmark}>
-              {isBookmarked ? <BookmarkIcon color="primary" /> : <BookmarkBorderIcon />}
+              {isBookmarked ? <Bookmark color="primary" /> : <BookmarkBorder />}
             </IconButton>
             <IconButton>
-              <ShareIcon />
+              <Share />
             </IconButton>
           </Box>
         </Box>
